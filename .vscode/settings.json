@@ -1,0 +1,9 @@
+{
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "cSpell.words": [
+    "tempy"
+  ],
+  "files.associations": {
+    "bitcoind": "shell"
+  }
+}
