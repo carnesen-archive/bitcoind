@@ -1,6 +1,6 @@
 {
   "name": "@carnesen/bitcoind",
-  "description": "A Node.js library for running the bitcoin server software `bitcoind`",
+  "description": "A Node.js library for managing the bitcoin server process `bitcoind`",
   "private": true,
   "version": "0.0.0-0",
   "main": "lib/index.js",
@@ -27,7 +27,6 @@
     "signal-exit": "3.0.2"
   },
   "devDependencies": {
-    "@carnesen/run-and-exit": "0.2.0",
     "@carnesen/tsconfig": "0.1.0",
     "@carnesen/tslint-config": "0.1.2",
     "@types/jest": "23.3.13",
@@ -39,8 +38,12 @@
     "ts-jest": "23.10.5",
     "ts-node": "8.0.2",
     "tslint": "5.12.1",
-    "typescript": "3.2.4"
+    "typescript": "3.3.1"
   },
+  "files": [
+    "lib",
+    "src"
+  ],
   "author": {
     "name": "Chris Arnesen",
     "email": "chris.arnesen@gmail.com"
