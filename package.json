@@ -1,7 +1,6 @@
 {
   "name": "@carnesen/bitcoind",
   "description": "A Node.js library for managing the bitcoin server process `bitcoind`",
-  "private": true,
   "version": "0.0.0-0",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
