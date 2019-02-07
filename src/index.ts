@@ -1,1 +1,1 @@
-export { spawn } from './spawn';
+export { spawnBitcoind } from './spawn';

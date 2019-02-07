@@ -13,7 +13,7 @@ type Options = Partial<{
 
 const BITCOIND_EXE = platform() === 'win32' ? 'bitcoind.exe' : 'bitcoind';
 
-export function spawn(options: Options = {}): Promise<void> {
+export function spawnBitcoind(options: Options = {}): Promise<void> {
   return new Promise((resolve, reject) => {
     const { configFilePath, bitcoinHome } = options;
     if (bitcoinHome && !isAbsolute(bitcoinHome)) {

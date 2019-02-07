@@ -1,11 +1,11 @@
 import { SectionedConfig, writeConfigFile } from '@carnesen/bitcoin-config';
 import * as tempy from 'tempy';
-import { spawn } from '../spawn';
+import { spawnBitcoind } from '../spawn';
 
 const spawnMocked = (config: SectionedConfig) => {
   const configFilePath = tempy.file();
   writeConfigFile(configFilePath, config);
-  return spawn({ configFilePath, bitcoinHome: process.cwd() });
+  return spawnBitcoind({ configFilePath, bitcoinHome: process.cwd() });
 };
 
 const catchMocked = async (config: SectionedConfig) => {
@@ -17,7 +17,7 @@ const catchMocked = async (config: SectionedConfig) => {
   }
 };
 
-describe(spawn.name, () => {
+describe(spawnBitcoind.name, () => {
   it('launches bitcoind and returns a promise that is pending while bitcoind is running', async () => {
     const s = Symbol();
     const resolvedValue = await Promise.race([
@@ -44,7 +44,7 @@ describe(spawn.name, () => {
 
   it('rejects "must be an absolute path" if the provided "bitcoinHome" is not absolute', async () => {
     try {
-      await spawn({ bitcoinHome: 'foo' });
+      await spawnBitcoind({ bitcoinHome: 'foo' });
       throw new Error('This line should never be reached');
     } catch (ex) {
       expect(ex.message).toMatch('must be an absolute path');
@@ -53,7 +53,7 @@ describe(spawn.name, () => {
 
   it('rejects if spawn fails', async () => {
     try {
-      await spawn({ bitcoinHome: '/foo/bar/baz' });
+      await spawnBitcoind({ bitcoinHome: '/foo/bar/baz' });
     } catch (ex) {
       expect(ex.code).toBe('ENOENT');
     }
